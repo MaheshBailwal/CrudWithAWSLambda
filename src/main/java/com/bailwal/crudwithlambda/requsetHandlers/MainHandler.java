@@ -4,6 +4,7 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
+import com.bailwal.crudwithlambda.exceptions.HandlerNotFoundException;
 import com.bailwal.crudwithlambda.requsetHandlers.postalCode.*;
 
 public class MainHandler implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
@@ -12,6 +13,7 @@ public class MainHandler implements RequestHandler<APIGatewayProxyRequestEvent, 
 	public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent input, Context context) {
 
 		context.getLogger().log("Input: " + input.toString());
+		APIGatewayProxyResponseEvent responseEvent = new APIGatewayProxyResponseEvent();
 
 		try {
 			RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> handler = getHandler(
@@ -19,36 +21,34 @@ public class MainHandler implements RequestHandler<APIGatewayProxyRequestEvent, 
 
 			return handler.handleRequest(input, context);
 
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (HandlerNotFoundException e) {
+			responseEvent.setBody("Handler Not Found, please check mahesh bailwal ->" + input.toString());
+			responseEvent.setStatusCode(404);
+			return responseEvent;
 		}
 
-		APIGatewayProxyResponseEvent responseEvent = new APIGatewayProxyResponseEvent();
-		responseEvent.setBody("Error Ocuured, please check mahesh bailwal ->" + input.toString());
-		responseEvent.setStatusCode(500);
-		return responseEvent;
-
+		catch (Exception e) {
+			e.printStackTrace();
+			responseEvent.setBody("Error Ocuured, please check mahesh bailwal ->" + input.toString());
+			responseEvent.setStatusCode(500);
+			return responseEvent;
+		}
+		
 	}
 
 	private RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> getHandler(String path,
-			String httpMethod) throws Exception {
+			String httpMethod) throws HandlerNotFoundException {
 		switch (path) {
 		case "/postalcode":
 			switch (httpMethod) {
-			case "get":
+			case "GET":
 				return new GetPostalCodes();
-
-			case "post":
+			case "POST":
 				return new AddPostalCode();
-
-			default:
-				throw new Exception("Not Found");
 			}
-
-		default:
-			throw new Exception("Not Found");
 		}
+		
+		throw new HandlerNotFoundException("Not Found");
 	}
 
 }
