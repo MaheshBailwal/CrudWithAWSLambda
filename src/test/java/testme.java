@@ -17,27 +17,40 @@ public class testme {
 	@Test
 	public void test() {
 		PostalCodeService2 service = new PostalCodeService2();
-		
-	//	PostalCodeRepo service = new PostalCodeRepo();
+
+		// PostalCodeRepo service = new PostalCodeRepo();
 		List<PostalCodeDetailDTO> codes = null;
 		try {
-			codes =	service.GetAllPostalCodes();
+			codes = service.GetAllPostalCodes();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		System.out.println("count->" + codes.size());
 		assertNotNull(codes);
 	}
-	
+
 	@Test
 	public void test12() {
 		GetPostalCodes handler = new GetPostalCodes();
 		APIGatewayProxyResponseEvent res = handler.handleRequest(null, null);
-	
+
 		System.out.println("count->" + res.getBody());
 		assertNotNull(res);
+	}
+
+	@Test
+	public void AddPostalCode() {
+		PostalCodeService2 service = new PostalCodeService2();
+		int id=0;
+		try {
+			id = service.AddPostalCode(new AddPostalCodeDTO("test"));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		assertNotEquals(0, id);
 	}
 
 }

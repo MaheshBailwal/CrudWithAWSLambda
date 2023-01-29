@@ -3,6 +3,7 @@ package com.bailwal.crudwithlambda.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.bailwal.crudwithlambda.dtos.AddPostalCodeDTO;
 import com.bailwal.crudwithlambda.dtos.PostalCodeDetailDTO;
 import com.bailwal.crudwithlambda.entities.PostalCodeEntity;
 import com.bailwal.crudwithlambda.repositories.PostalCodeRepo;
@@ -25,6 +26,12 @@ public class PostalCodeService2 {
 		}
 
 		return dtos;
+	}
+
+	public int AddPostalCode(AddPostalCodeDTO dto) throws Exception {
+
+		PostalCodeEntity entity = new PostalCodeEntity(0, dto.getPostalCode());
+		return _repo.Add(entity);
 	}
 
 }
