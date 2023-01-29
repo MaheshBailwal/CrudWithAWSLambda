@@ -1,11 +1,11 @@
-package com.bailwal.crudwithlambda.dtos;
+package com.bailwal.crudwithlambda.entities;
 
-public class PostalCodeDetailDTO {
+public class PostalCodeEntity {
 
 	private int id;
 	private String postalCode;
 
-	public PostalCodeDetailDTO(int id, String postalCode) {
+	public PostalCodeEntity(int id, String postalCode) {
 		this.setId(id);
 		this.setPostalCode(postalCode);
 	}
@@ -14,7 +14,7 @@ public class PostalCodeDetailDTO {
 		return id;
 	}
 
-	public void setId(int id) {
+	private void setId(int id) {
 		this.id = id;
 	}
 
@@ -22,8 +22,7 @@ public class PostalCodeDetailDTO {
 		return postalCode;
 	}
 
-	public void setPostalCode(String postalCode) {
+	private void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
 	}
-
 }
