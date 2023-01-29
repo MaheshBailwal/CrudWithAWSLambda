@@ -1,4 +1,8 @@
-com\bailwal\crudwithlambda\requsetHandlers\MainHandler.class
+com\bailwal\crudwithlambda\entities\Employee.class
 com\bailwal\crudwithlambda\requsetHandlers\postalCode\AddPostalCode.class
+com\bailwal\crudwithlambda\services\PostalCode.class
+com\bailwal\crudwithlambda\dtos\PostalCodeDetailDTO.class
+com\bailwal\crudwithlambda\requsetHandlers\MainHandler.class
 com\bailwal\crudwithlambda\requsetHandlers\postalCode\GetPostalCodes.class
 com\bailwal\crudwithlambda\exceptions\HandlerNotFoundException.class
+com\bailwal\crudwithlambda\dtos\AddPostalCodeDTO.class

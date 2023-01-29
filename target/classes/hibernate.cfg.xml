@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM 
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+
+		<!-- Connection settings -->
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://free-instance.c3enhs8xm5kf.us-east-1.rds.amazonaws.com:5432/purolator</property>
+		<property name="hibernate.connection.username">postgres</property>
+		<property name="hibernate.connection.password">password123</property>
+
+		<!-- SQL dialect -->
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+		
+		<!-- Update database on startup -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		<!-- Print executed SQL to stdout -->
+		<property name="show_sql">true</property>
+		
+
+
+		<!-- Annotated entity classes -->
+		<mapping class="com.bailwal.crudwithlambda.entities.Employee" />
+	</session-factory>
+</hibernate-configuration>

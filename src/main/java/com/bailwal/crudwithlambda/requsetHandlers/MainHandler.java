@@ -29,7 +29,7 @@ public class MainHandler implements RequestHandler<APIGatewayProxyRequestEvent, 
 
 		catch (Exception e) {
 			e.printStackTrace();
-			responseEvent.setBody("Error Ocuured, please check mahesh bailwal ->" + input.toString());
+			responseEvent.setBody("Error Ocuured, please check mahesh bailwal --->" + e.getMessage() + e.toString());
 			responseEvent.setStatusCode(500);
 			return responseEvent;
 		}

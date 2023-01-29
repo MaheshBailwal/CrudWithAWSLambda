@@ -6,6 +6,6 @@ public class PostalCode {
 
 	public int Add(AddPostalCodeDTO addDto)
 	{
-		
+		return 0;
 	}
 }
