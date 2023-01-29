@@ -15,12 +15,13 @@ public class PostalCodeRepo {
 	public PostalCodeRepo() {
 		// TODO Auto-generated constructor stub
 	}
+
 	public List<PostalCodeEntity> GetAllPostalCodes() throws Exception {
 		
 		List<PostalCodeEntity> postalCodes = new ArrayList<PostalCodeEntity>();
-		try (Connection conn = DriverManager.getConnection(
+		Connection conn = DriverManager.getConnection(
 				"jdbc:postgresql://free-instance.c3enhs8xm5kf.us-east-1.rds.amazonaws.com:5432/purolator", "postgres",
-				"password123")) {
+				"password123");
 
 		PreparedStatement preparedStatement = conn.prepareStatement("Select * from postalcode");
 
@@ -31,12 +32,7 @@ public class PostalCodeRepo {
 			String code = rs.getString("code");
 			postalCodes.add(new PostalCodeEntity(id, code));
 		}
-	//	conn.close();
-		} catch (SQLException e) {
-			System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		conn.close();
 		
 		return postalCodes;
 

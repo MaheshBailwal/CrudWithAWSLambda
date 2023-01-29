@@ -7,8 +7,6 @@ import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 import com.bailwal.crudwithlambda.dtos.PostalCodeDetailDTO;
 import com.bailwal.crudwithlambda.services.PostalCodeService2;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import com.google.gson.Gson;
 
 import java.sql.Connection;
@@ -29,11 +27,6 @@ public class GetPostalCodes implements RequestHandler<APIGatewayProxyRequestEven
 		List<PostalCodeDetailDTO> codes = new ArrayList<>();
 		try {
 			codes = service.GetAllPostalCodes();
-			// ObjectMapper mapper = new ObjectMapper();
-			// json = mapper.writeValueAsString(codes);
-			//ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-			//json = ow.writeValueAsString(codes);
-
 			json = new Gson().toJson(codes);
 
 		} catch (Exception e) {
@@ -42,7 +35,7 @@ public class GetPostalCodes implements RequestHandler<APIGatewayProxyRequestEven
 		}
 
 		APIGatewayProxyResponseEvent responseEvent = new APIGatewayProxyResponseEvent();
-		responseEvent.setBody(json + "count:" + codes.size());
+		responseEvent.setBody(json);
 		responseEvent.setStatusCode(200);
 		return responseEvent;
 	}
