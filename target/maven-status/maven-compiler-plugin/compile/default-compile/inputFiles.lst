@@ -1,9 +1,11 @@
 F:\GitHub\CrudWithAWSLambda\src\main\java\com\bailwal\crudwithlambda\requsetHandlers\postalCode\AddPostalCode.java
+F:\GitHub\CrudWithAWSLambda\src\main\java\com\bailwal\crudwithlambda\services\PostalCodeService2.java
 F:\GitHub\CrudWithAWSLambda\src\main\java\com\bailwal\crudwithlambda\entities\Employee.java
+F:\GitHub\CrudWithAWSLambda\src\main\java\com\bailwal\crudwithlambda\entities\PostalCodeEntity.java
 F:\GitHub\CrudWithAWSLambda\src\main\java\com\bailwal\crudwithlambda\dtos\AddPostalCodeDTO.java
 F:\GitHub\CrudWithAWSLambda\src\main\java\com\bailwal\crudwithlambda\dtos\PostalCodeDetailDTO.java
 F:\GitHub\CrudWithAWSLambda\src\main\java\com\bailwal\crudwithlambda\repositories\PostalCodeRepo.java
 F:\GitHub\CrudWithAWSLambda\src\main\java\com\bailwal\crudwithlambda\exceptions\HandlerNotFoundException.java
-F:\GitHub\CrudWithAWSLambda\src\main\java\com\bailwal\crudwithlambda\services\PostalCode.java
 F:\GitHub\CrudWithAWSLambda\src\main\java\com\bailwal\crudwithlambda\requsetHandlers\postalCode\GetPostalCodes.java
 F:\GitHub\CrudWithAWSLambda\src\main\java\com\bailwal\crudwithlambda\requsetHandlers\MainHandler.java
+F:\GitHub\CrudWithAWSLambda\src\main\java\com\bailwal\crudwithlambda\services\PostalCodeService.java
