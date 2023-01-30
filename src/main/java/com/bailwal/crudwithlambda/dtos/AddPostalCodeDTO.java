@@ -5,6 +5,9 @@ public class AddPostalCodeDTO {
 
 	private String postalCode;
 
+	public AddPostalCodeDTO() {
+
+	}
 	public AddPostalCodeDTO(String postalCode) {
 
 		this.setPostalCode(postalCode);

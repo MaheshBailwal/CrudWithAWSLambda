@@ -1,6 +1,5 @@
 com\bailwal\crudwithlambda\entities\Employee.class
 com\bailwal\crudwithlambda\requsetHandlers\postalCode\AddPostalCode.class
-com\bailwal\crudwithlambda\services\PostalCodeService.class
 com\bailwal\crudwithlambda\entities\PostalCodeEntity.class
 com\bailwal\crudwithlambda\dtos\PostalCodeDetailDTO.class
 com\bailwal\crudwithlambda\repositories\PostalCodeRepo.class
